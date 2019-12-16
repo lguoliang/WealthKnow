@@ -1,0 +1,57 @@
+<!--miniprogram/pages/queryResult/queryResult.wxml-->
+<form bindsubmit="formSubmit" class="query-box">
+  <view class="input-item">
+    <label>股票名称</label>
+    <picker class="flex-item" bindchange="bindPickerChange" value="{{index}}" range="{{typeList}}" range-key="name">
+      <input type="text" value="{{typeList[index].name}}" disabled="{{true}}" name="type" />
+    </picker>
+    <text class="arrow-item"></text>
+  </view>
+  <view class="input-item">
+    <label>身份证号</label>
+    <input class="flex-item" placeholder-class="placeholder" type="text" name="code" placeholder="请输入身份证号" />
+  </view>
+  <button formType="submit" class="submit-btn">查询</button>
+</form>
+<view class="result-list" wx:if="{{resultList.length>0}}">
+  <strong>查询结果</strong>
+  <view class="list-item" wx:for="{{resultList}}" wx:key>
+    <view>
+      <text>身份证号</text>
+      <view class="code-item">{{item.code}}</view>
+    </view>
+    <view>
+      <text>获配发股份数目</text>
+      <view class="num-item">{{item.num}}</view>
+    </view>
+  </view>
+</view>
+<block wx:else>
+  <view class="result-list" wx:if="{{afterSearch}}" style="text-align: center;">暂无数据</view>
+</block>
+<view class="wk-card {{resultList.length>0?'relative':''}}">
+  <view class="wk-tip">
+    <view>温馨提示</view>
+    <view>Ant Design是一个服务于企业级产品的设计体系，基于『确定』和『自然』的设计价值观和模块化的解决方案，让设计者专注于更好的用户体验。</view>
+  </view>
+  <view class="wk-info">
+    <view class="wk-intro">
+      <strong>财懂得</strong>
+      <view class="wk-text">一个成长型理财社区，你的理财顾问团</view>
+      <view class="wk-type">
+        <text>港股打新</text>
+        <text>基金定投</text>
+        <text>保险定制</text>
+        <text>转债套利</text>
+        <text>主题分享</text>
+        <text>财商进阶</text>
+        <text>好书推荐</text>
+        <text>线下聚会</text>
+      </view>
+    </view>
+    <view class="wx-code">
+      <!-- <image src="http://placehold.jp/150x150.png" /> -->
+      <!-- <view>长按扫码</view> -->
+    </view>
+  </view>
+</view>

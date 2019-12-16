@@ -1,0 +1,17 @@
+<!--components/login/login.wxml-->
+<view class="cu-modal {{logged ? '' : 'show'}}">
+  <view class="cu-dialog">
+    <view class="flex padding justify-center">
+      <view class="cu-avatar xl margin-top-xl round" style="background-image:url(../../images/avatar.png);"></view>
+    </view>
+    <view class='padding-xl text-gray'>允许微信授权后,可体验更多功能</view>
+    <view class="cu-bar bg-white justify-center ">
+      <view class='action'>
+        <button class='cu-btn line-green text-green' bindtap='navigateBack'>返回首页</button>
+        <button class='cu-btn bg-green margin-left' open-type='getUserInfo' bindgetuserinfo="onGetUserInfo">
+          授权登录
+        </button>
+      </view>
+    </view>
+  </view>
+</view>
